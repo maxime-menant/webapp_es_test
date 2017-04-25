@@ -59,6 +59,6 @@ gem 'rails-controller-testing', group: 'test'
 # NOTE: Kaminari has to be loaded before Elasticsearch::Model so the callbacks are executed
 gem 'kaminari'
 
-gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
-gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
