@@ -22,6 +22,7 @@ gem 'puma', '~> 3.0'
 # gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
+gem 'uglifier'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -49,6 +50,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'capistrano',                 '~> 3.7', require: false
+  gem 'capistrano-rails',           '~> 1.1.6', require: false
+  gem 'capistrano-bundler',         '~> 1.1.4', require: false
+  gem 'capistrano-rvm',             require: false
+  gem 'capistrano3-puma',           git: 'https://github.com/seuros/capistrano-puma', require: false #'~> 1.2.1'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
