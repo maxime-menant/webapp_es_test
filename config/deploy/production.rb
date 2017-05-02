@@ -32,8 +32,10 @@ set :rvm_ruby_string, 'ruby-2.3.1'
 set :rvm_type, :user
 
 # Puma
-set :puma_threads,        [32, 32]
-set :puma_workers,        8
+set :puma_init_active_record, true
+set :puma_bind, "unix://#{shared_path}/tmp/sockets/web-app_puma.sock"
+set :puma_threads,        [16, 16]
+set :puma_workers,        4
 set :puma_worker_timeout, 60
 
 set :puma_enable_puma_worker_killer,  true
