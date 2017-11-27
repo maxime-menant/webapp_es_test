@@ -1,26 +1,22 @@
 language: ruby
 rvm:
-  - 2.4.2
-
+- 2.4.2
 cache:
   bundler: true
-  # directories:
-  # - $TEST_DIR/vendor/bundle
-
 services:
-  - elasticsearch
-  - postgresql
-
+- elasticsearch
+- postgresql
 addons:
-  postgresql: "9.6"
-
+  postgresql: '9.6'
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
-  - gem install bundler-audit --no-ri --no-rdoc
-
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+- gem install bundler-audit --no-ri --no-rdoc
 script:
-  - bundle exec rake db:test:prepare
-  - bundle exec rake test
-  - bundle audit check --update
-  - bundle exec brakeman --exit-on-warn --quiet -f plain
+- bundle exec rake db:test:prepare
+- bundle exec rake test
+- bundle audit check --update
+- bundle exec brakeman --exit-on-warn --quiet -f plain
+notifications:
+  slack:
+    secure: Nt57QJTIenWIDi+7PqCe7MqOKCezOsEDkFQ6YO7cAY6ljpEOOxdD2eztDGh4NQnuj7hXtrhUJXm5/QLCqYmPjsxxXI7c3chGDRd/JQB1brLb1cMQJOFz+RTy030NndT0y9ZjwJKGaEacvQLePSEsG2wIPNp01Qss2yX2WFcQEHkZ9mkKJ1CERs00zd4OeIQwzKh5AZpwt3vwhVej+vz/0bM3NDqUI9pxaDD9rLGK7plQ9ey+2o+IKgnMZhxm1FyUivoMAF9BjF6SjSmymxO4P8GruZToV7WSoXNJo5i5bgTL6c8rQh/x679gZwQlOU07VcwicZotVRaxCjH/FnYm1hyqR5KR4AVGtSVY0tD8jWbo0g2kcxIf5eJBaJA9V1GXf6gNSEt9JnMYi1EcPKv+GTTfcQRRI8jBzIoIY76hXRRXkjdPW4px/XuQapdecuB+0QHaWhmPa6jF4xI0/ryCrRbpkoEJ41z2QTcSu1ax5idRypcXxKj6WSEAnNumQaGP+5dhFDsB4NAMDc4fS3QhyHE1WlyS1gdJdnL19duGUPEtXUU3GrAsqJFjo8BODyjbcuUDEBG9oIOCFjtq30f03P6fHxHRw3JhTnKbrEvjueiBJb5WJkDwPxaNkzgTTqgvUedX+hRbzmaBVLkxXXcAGEEhM5BKW5xF7EipWyuJ6YU=
