@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/maxime-menant/webapp_es_test.svg?branch=master)](https://travis-ci.org/maxime-menant/webapp_es_test)
+
 # Ruby on Rails and Elasticsearch: Example application
 
 This application is an example of integrating the {Elasticsearch}[http://www.elasticsearch.org]
