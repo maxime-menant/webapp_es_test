@@ -53,9 +53,6 @@ GEM
     bindex (0.5.0)
     brakeman (4.0.1)
     builder (3.2.3)
-    bundler-audit (0.6.0)
-      bundler (~> 1.2)
-      thor (~> 0.18)
     byebug (9.0.6)
     capistrano (3.8.1)
       airbrussh (>= 1.0.0)
@@ -222,7 +219,6 @@ PLATFORMS
 
 DEPENDENCIES
   brakeman
-  bundler-audit
   byebug
   capistrano (~> 3.7)
   capistrano-bundler (~> 1.1.4)

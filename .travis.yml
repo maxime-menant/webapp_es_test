@@ -2,7 +2,10 @@ language: ruby
 rvm:
   - 2.4.2
 
-cache: bundler
+cache:
+  bundler: true
+  # directories:
+  # - $TEST_DIR/vendor/bundle
 
 services:
   - elasticsearch
@@ -14,9 +17,10 @@ addons:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - gem install bundler-audit --no-ri --no-rdoc
 
 script:
   - bundle exec rake db:test:prepare
   - bundle exec rake test
   - bundle audit check --update
-  - bundle exec brakeman-pro --exit-on-warn --quiet -f plain
+  - bundle exec brakeman --exit-on-warn --quiet -f plain
