@@ -18,3 +18,5 @@ before_script:
 script:
   - bundle exec rake db:test:prepare
   - bundle exec rake test
+  - bundle audit check --update
+  - bundle exec brakeman-pro --exit-on-warn --quiet -f plain
